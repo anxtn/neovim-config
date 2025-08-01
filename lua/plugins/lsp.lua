@@ -9,7 +9,8 @@ local lspServers = {
     "bashls",
     "html",
     "cssls",
-    "jsonls"
+    "jsonls",
+    "cmake"
 }
 
 function M.setup()
