@@ -70,5 +70,27 @@ require("lazy").setup({
         config = function ()
            require("plugins.autopairs").setup()
         end,
+    },
+
+    -- neotree
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons",
+            "MunifTanjim/nui.nvim",
+        },
+        config = function ()
+            require("plugins.neotree").setup()
+        end
+    },
+
+    {
+        "nvim-tree/nvim-web-devicons",
+        lazy = true,
+        config = function ()
+            require("plugins.devicons").setup()
+        end
     }
 })
