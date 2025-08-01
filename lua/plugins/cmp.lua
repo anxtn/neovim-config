@@ -1,4 +1,4 @@
-M = {}
+local M = {}
 
 function M.setup()
     local cmp = require("cmp")

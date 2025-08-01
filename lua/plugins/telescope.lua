@@ -1,4 +1,4 @@
-M = {}
+local M = {}
 
 local function is_grep_installed()
     local handle = io.popen("rg --version 2>&1") 
