@@ -20,19 +20,24 @@ require("lazy").setup({
             require("plugins.neodev").setup()
         end,
     },
+
     -- bufferline 
     {
         "akinsho/bufferline.nvim",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
+        dependencies = {
+            "nvim-tree/nvim-web-devicons"
+        },
         config = function()
             require("plugins.bufferline_config").setup()
         end
-    }
-    ,
+    },
+
     -- lualine
     {
         "nvim-lualine/lualine.nvim",
-        dependencies = {"nvim-tree/nvim-web-devicons"},
+        dependencies = {
+            "nvim-tree/nvim-web-devicons"
+        },
         config = function()
             require("plugins.lualine_config").setup()
         end
