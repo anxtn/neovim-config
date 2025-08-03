@@ -26,7 +26,22 @@ function M.setup()
                 enabled = true,
             },
         },
+        default_component_configs = {
+            git_status = {
+                symbols = {
+                    added     = "",
+                    deleted   = "",
+                    modified  = "",
+                    renamed   = "",
+                    untracked = "",
+                    ignored   = "",
+                    unstaged  = "󰄱",
+                    staged    = "",
+                    conflict  = "",
+                }
+            }
+        },
     })
 end
 
-return M;
+return M

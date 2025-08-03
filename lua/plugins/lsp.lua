@@ -14,6 +14,8 @@ local lspServers = {
 }
 
 function M.setup()
+    require("neodev").setup()
+
     local mason_lspconfig = require("mason-lspconfig")
     local lspconfig = require("lspconfig")
 
@@ -21,6 +23,7 @@ function M.setup()
         ensure_installed = lspServers,
         handlers = {
             function(server_name)
+                print(server_name)
                 lspconfig[server_name].setup {}
             end,
         },
