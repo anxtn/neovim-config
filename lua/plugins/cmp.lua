@@ -1,19 +1,23 @@
-local M = {}
-
-function M.setup()
-    local cmp = require("cmp")
-    cmp.setup({
-        mapping = cmp.mapping.preset.insert({
-            ["<Tab>"] = cmp.mapping.select_next_item(),
-            ["<S-Tab>"] = cmp.mapping.select_prev_item(),
-            ["<CR>"] = cmp.mapping.confirm({select = true}),
-        }),
-        sources = {
-            { name = 'nvim_lsp' },
-            { name = 'buffer'   },
-            { name = 'path'     },
+return {
+    {
+        "hrsh7th/nvim-cmp",
+        dependencies = {
+            "hrsh7th/cmp-nvim-lsp",
         },
-    })
-end
-
-return M
+        config = function()
+            local cmp = require("cmp")
+            cmp.setup({
+                mapping = cmp.mapping.preset.insert({
+                    ["<Tab>"] = cmp.mapping.select_next_item(),
+                    ["<S-Tab>"] = cmp.mapping.select_prev_item(),
+                    ["<CR>"] = cmp.mapping.confirm({select = true}),
+                }),
+                sources = {
+                    { name = 'nvim_lsp' },
+                    { name = 'buffer'   },
+                    { name = 'path'     },
+                },
+            })
+        end,
+    },
+}
