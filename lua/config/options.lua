@@ -1,14 +1,14 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.signcolumn = 'yes'
+vim.opt.signcolumn = "yes"
 
 vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
-vim.opt.inccommand = 'split'
+vim.opt.inccommand = "split"
 
 vim.opt.wrap = true
 vim.opt.breakindent = true
@@ -27,6 +27,6 @@ vim.opt.splitbelow = true
 vim.opt.undofile = true
 
 -- Border of all floating windows
-vim.opt.winborder = 'rounded'
+vim.opt.winborder = "rounded"
 
 vim.opt.swapfile = false
