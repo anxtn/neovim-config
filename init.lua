@@ -4,5 +4,3 @@ require("config.diagnostic")
 require("config.keymap")
 require("core.lazy")
 require("config.lsp")
-
-
