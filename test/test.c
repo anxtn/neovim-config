@@ -3,7 +3,7 @@
 
 // stores the infos about a user
 typedef struct {
-    const char* name;
+    const char *name;
     int age;
     double score;
 } User;
@@ -22,15 +22,11 @@ void print_user_info(User *user) {
 }
 
 int main(void) {
-    User users[] = {
-        { "Alice", 30, 8.6 },
-        { "Bob", 25, 6.9 },
-        { "Charlie", 28, 9.2 }
-    };
-    
+    User users[] = {{"Alice", 30, 8.6}, {"Bob", 25, 6.9}, {"Charlie", 28, 9.2}};
+
     size_t user_count = sizeof(users) / sizeof(users[0]);
     printf("App v%s - Processing %zu users\n\n", VERSION, user_count);
-    
+
     // this is the process
     for (size_t i = 0; i < user_count; ++i) {
         print_user_info(&users[i]);
