@@ -5,10 +5,10 @@ return {
         "nvim-tree/nvim-web-devicons",
     },
     keys = {
-        { "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Find Files" }, 
-        { "<leader>ft", "<cmd>Telescope live_grep<CR>", desc = "Find Text" },
+        { "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "Find Files" },
+        { "<leader>ft", "<cmd>Telescope live_grep<CR>",  desc = "Find Text" },
     },
-    config = function ()
+    config = function()
         require("telescope").setup({})
     end,
 }
