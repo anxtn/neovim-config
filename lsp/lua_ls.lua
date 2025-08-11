@@ -15,9 +15,6 @@ return {
             runtime = {
                 version = "LuaJIT",
             },
-            diagnostics = {
-                globals = { "vim" },
-            },
         },
-   },
+    },
 }

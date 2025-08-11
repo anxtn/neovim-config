@@ -3,6 +3,9 @@ return {
         "hrsh7th/nvim-cmp",
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
+            "folke/lazydev.nvim",
+            "mason-org/mason.nvim",
+            "williamboman/mason-lspconfig.nvim",
         },
         config = function()
             local cmp = require("cmp")
@@ -13,8 +16,8 @@ return {
                     ["<CR>"] = cmp.mapping.confirm({ select = true }),
                 }),
                 sources = {
+                    { name = "lazydev" },
                     { name = "nvim_lsp" },
-                    { name = "buffer" },
                     { name = "path" },
                 },
             })
