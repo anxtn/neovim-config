@@ -9,14 +9,54 @@ vim.api.nvim_create_autocmd("LspAttach", {
         local client = vim.lsp.get_client_by_id(args.data.client_id)
         local capabilities = client and client.server_capabilities
 
+        if capabilities and capabilities.renameProvider then
+            vim.keymap.set(
+                "n",
+                "<leader>rn",
+                vim.lsp.buf.rename,
+                { buffer = bufnr, noremap = true, silent = true, desc = "LSP: Rename symbol" }
+            )
+        end
+
         if capabilities and capabilities.definitionProvider then
             vim.keymap.set(
                 "n",
                 "gd",
                 vim.lsp.buf.definition,
-                { buffer = bufnr, noremap = true, silent = true, desc = "LSP: go to definition" }
+                { buffer = bufnr, noremap = true, silent = true, desc = "LSP: Go to definition" }
             )
         end
+
+        local open_qf_diagnostic = function()
+            local diagnostics = vim.diagnostic.get(bufnr)
+            local qf_list = {}
+            local serverity_map = {
+                [vim.diagnostic.severity.ERROR] = "E",
+                [vim.diagnostic.severity.WARN]  = "W",
+                [vim.diagnostic.severity.INFO]  = "I",
+                [vim.diagnostic.severity.HINT]  = "H",
+            }
+
+            for _, diag in ipairs(diagnostics) do
+                table.insert(qf_list, {
+                    bufnr = diag.bufnr,
+                    lnum = diag.lnum + 1,
+                    col = diag.col + 1,
+                    text = diag.message,
+                    type = serverity_map[diag.severity] or "E"
+                })
+            end
+
+            vim.fn.setqflist(qf_list, "r")
+            vim.cmd("copen")
+        end
+
+        vim.keymap.set(
+            "n",
+            "<leader>qd",
+            open_qf_diagnostic,
+            { buffer = bufnr, noremap = true, silent = true, desc = "LSP: Open quickfix diagnostics" }
+        )
 
         if capabilities and capabilities.documentFormattingProvider then
             vim.api.nvim_create_autocmd("BufWritePre", {
