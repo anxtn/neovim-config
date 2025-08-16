@@ -1,35 +1,30 @@
 #include <stdio.h>
-#define VERSION "1.0.0"
 
-// stores the infos about a user
+#define MAX 10
+
 typedef struct {
-    const char *name;
-    int age;
-    double score;
-} User;
+    int id;
+    char name[20];
+} Person;
 
-// prints the user infos to the console
-void print_user_info(User *user) {
-    printf("User: %s | Age: %d | Score: %.2f\n", user->name, user->age, user->score);
+enum Color { RED, GREEN, BLUE };
 
-    if (user->score >= 9.0) {
-        printf("Status: excellent\n");
-    } else if (user->score >= 7.0) {
-        printf("Status: good\n");
-    } else {
-        printf("Status: needs improvement\n");
-    }
-}
+static int global_var = 0;
+
+int add(int a, int b) { return a + b; }
 
 int main(void) {
-    User users[] = {{"Alice", 30, 8.6}, {"Bob", 25, 6.9}, {"Charlie", 28, 9.2}};
+    Person p = {1, "Tom"};
+    enum Color favorite = BLUE;
 
-    size_t user_count = sizeof(users) / sizeof(users[0]);
-    printf("App v%s - Processing %zu users\n\n", VERSION, user_count);
+    for (int i = 0; i < MAX; i++) {
+        printf("Hello %s! %d + %d = %d\n", p.name, i, global_var, add(i, global_var));
+    }
 
-    // this is the process
-    for (size_t i = 0; i < user_count; ++i) {
-        print_user_info(&users[i]);
+    if (favorite == BLUE) {
+        puts("Favorite color is blue.");
+    } else {
+        puts("Favorite color is not blue.");
     }
 
     return 0;
