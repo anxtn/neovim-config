@@ -8,8 +8,7 @@
 |:----------------------|:----------------|
 | Rename a symbole.     | `space` `r` `n` |
 | Goto the definition.  | `space` `g` `d` |
-| List all diagnostics
-  in the quickfix list. | `space` `q` `d` |
+| List all diagnostics in the quickfix list. | `space` `q` `d` |
 
 ### Search (Telescope) 🔍
 
