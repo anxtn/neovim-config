@@ -11,6 +11,13 @@ return {
                 desc = "DEP: Start/Continue",
             },
             {
+                "<F6>",
+                function()
+                    require("dap").terminate()
+                end,
+                desc = "DEP: Terminate",
+            },
+            {
                 "<F11>",
                 function()
                     require("dap").step_into()
