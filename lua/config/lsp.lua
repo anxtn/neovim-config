@@ -1,6 +1,7 @@
 vim.lsp.enable({
     "clangd",
     "lua_ls",
+    "pyright",
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
