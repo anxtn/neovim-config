@@ -19,6 +19,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
             )
         end
 
+        if capabilities and capabilities.codeActionProvider then
+            vim.keymap.set(
+                "n",
+                "<leader>ca",
+                vim.lsp.buf.code_action,
+                { buffer = bufnr, noremap = true, silent = false, desc = "LSP: Code Action" }
+            )
+        end
+
         if capabilities and capabilities.definitionProvider then
             vim.keymap.set(
                 "n",
