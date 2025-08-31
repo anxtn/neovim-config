@@ -3,6 +3,7 @@ return {
         "hrsh7th/nvim-cmp",
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-nvim-lsp-signature-help",
             "folke/lazydev.nvim",
             "mason-org/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
@@ -64,6 +65,7 @@ return {
                     { name = "nvim_lsp" },
                     { name = "luasnip" }, -- for future use
                     { name = "path" },
+                    { name = "nvim_lsp_signature_help" },
                 },
 
                 window = {
