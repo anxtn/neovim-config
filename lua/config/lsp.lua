@@ -10,23 +10,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
         local client = vim.lsp.get_client_by_id(args.data.client_id)
 
         local capabilities = client and client.server_capabilities
-        if capabilities and capabilities.renameProvider then
-            vim.keymap.set(
-                "n",
-                "<leader>rn",
-                vim.lsp.buf.rename,
-                { buffer = bufnr, noremap = true, silent = true, desc = "LSP: Rename symbol" }
-            )
-        end
-
-        if capabilities and capabilities.codeActionProvider then
-            vim.keymap.set(
-                "n",
-                "<leader>ca",
-                vim.lsp.buf.code_action,
-                { buffer = bufnr, noremap = true, silent = false, desc = "LSP: Code Action" }
-            )
-        end
 
         if capabilities and capabilities.definitionProvider then
             vim.keymap.set(
