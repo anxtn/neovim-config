@@ -2,6 +2,7 @@ vim.lsp.enable({
     "clangd",
     "lua_ls",
     "pyright",
+    "vtsls",
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
