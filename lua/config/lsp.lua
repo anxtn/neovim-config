@@ -3,7 +3,10 @@ vim.lsp.enable({
     "lua_ls",
     "pyright",
     "vtsls",
+    "delphiLSP",
 })
+
+vim.lsp.set_log_level('trace')
 
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)
