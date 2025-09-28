@@ -18,6 +18,15 @@ caps:
     )
 end
 
+vim.api.nvim_create_user_command("LspVerboseInfo",
+    function(opts)
+        local msg = vim.inspect(vim.lsp.get_clients({ bufnr = 0 }))
+        vim.fn.setreg("+", msg)
+    end,
+    { nargs = "*", desc = "Displays important LSP Infos of the current active LSP" }
+)
+
+
 vim.api.nvim_create_user_command(
     "LspInfo",
     function(opts)

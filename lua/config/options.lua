@@ -10,7 +10,7 @@ vim.opt.smartcase = true
 
 vim.opt.inccommand = "split"
 
-vim.opt.wrap = true
+vim.opt.wrap = false
 vim.opt.breakindent = true
 
 -- Tabstops

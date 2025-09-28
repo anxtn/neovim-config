@@ -51,15 +51,11 @@ return {
             local dap = require("dap")
 
             dap.adapters.codelldb = {
-                type = "server",
-                port = "${port}",
-                executable = {
-                    command = vim.fn.stdpath("data") .. "/mason/bin/codelldb",
-                    args = { "--port", "${port}" },
-                },
+                type = "executable",
+                command = vim.fn.stdpath("data") .. "/mason/bin/codelldb",
             }
 
-            dap.configurations.cpp = {
+            dap.configurations.c = {
                 {
                     name = "Launch file",
                     type = "codelldb",
@@ -72,6 +68,9 @@ return {
                     args = {},
                 },
             }
+
+            dap.configurations.cpp = dap.configurations.c
+            dap.configurations.rust = dap.configurations.c
 
             vim.api.nvim_set_hl(0, "DapBreakpointColor", { fg = "#FF5555" })
             vim.fn.sign_define("DapBreakpoint", {
