@@ -4,17 +4,30 @@
 
 ### LSP 💡
 
-| Action                |  Key            | 
-|:----------------------|:----------------|
-| Rename a symbole.     | `space` `r` `n` |
-| Goto the definition.  | `space` `g` `d` |
-| List all diagnostics in the quickfix list. | `space` `q` `d` |
+Normal mode 
 
-### Search (Telescope) 🔍
+| Action                     |  Key            |
+|:---------------------------|:----------------|
+| Rename symbole             | `g` `r` `n`     |
+| Execute code action        | `g` `r` `a`     |
+| List symbol references     | `g` `r` `r`     |
+| List all symbols in buffer | `g` `O`         |
+| Format current buffer      | `SPACE` `l` `f` |
+| Goto definition            | `SPACE` `g` `d` |
+| List diagnostics           | `SPACE` `q` `d` |
+| Hover at cursor            | `K`             |
 
-| Action             |  Key            | 
+Insert mode
+
+| Action                     |  Key       |
+|:---------------------------|:-----------| 
+| Signature help             | `CTRL` `s` |
+
+### Search 🔍
+
+Normal mode
+
+| Action             |  Key            |
 |:-------------------|:----------------|
-| Search for Files.  | `space` `f` `f` |
-| Search for Text.   | `space` `f` `t` |
-
-
+| Search for files   | `SPACE` `f` `f` |
+| Search for text    | `SPACE` `f` `t` |

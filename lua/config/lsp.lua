@@ -35,16 +35,18 @@ vim.api.nvim_create_autocmd("LspAttach", {
             { buffer = bufnr, noremap = true, silent = true, desc = "LSP: Open quickfix diagnostics" }
         )
 
-        if capabilities and capabilities.documentFormattingProvider then
-            vim.api.nvim_create_autocmd("BufWritePre", {
-                buffer = bufnr,
-                callback = function()
-                    if client then
-                        vim.lsp.buf.format({ bufnr = bufnr, id = client.id })
-                    end
-                end
-            })
+        local format_file = function()
+            if client then
+                vim.lsp.buf.format({ bufnr = bufnr, id = client.id })
+            end
         end
+
+        vim.keymap.set(
+            "n",
+            "<leader>lf",
+            format_file,
+            { buffer = bufnr, noremap = true, silent = true, desc = "LSP: Format file" }
+        )
 
         vim.api.nvim_create_autocmd("CursorHold", {
             buffer = bufnr,
