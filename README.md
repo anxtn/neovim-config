@@ -15,7 +15,8 @@ Normal mode
 | Format current buffer      | `SPACE` `l` `f` |
 | Goto definition            | `SPACE` `g` `d` |
 | List diagnostics           | `SPACE` `q` `d` |
-| Hover at cursor            | `K`             |
+| Dianostic info at cursor   | `SPACE` `d`     |
+| Symbol info at cursor      | `K`             |
 
 Insert mode
 
@@ -31,3 +32,11 @@ Normal mode
 |:-------------------|:----------------|
 | Search for files   | `SPACE` `f` `f` |
 | Search for text    | `SPACE` `f` `t` |
+
+### Completion ❯❯❯❯
+
+| Action             |  Key            |
+|:-------------------|:----------------|
+| Open completion    | `CTRL` `SPACE`  |
+
+
