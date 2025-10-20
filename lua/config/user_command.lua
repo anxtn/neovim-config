@@ -8,11 +8,13 @@ local function get_lsp_client_info_str(client)
 
     return string.format([[
 name: %s
+root dir: %s
 id  : %d
 caps:
 %s
     ]],
         client.name,
+        client.root_dir,
         client.id,
         table.concat(caps_names)
     )

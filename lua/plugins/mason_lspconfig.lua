@@ -1,3 +1,4 @@
+---@type vim.lsp.Config
 return {
     {
         "williamboman/mason-lspconfig.nvim",
@@ -12,6 +13,8 @@ return {
                     "clangd",
                     "pyright",
                     "vtsls",
+                    "rust_analyzer",
+                    "lemminx",
                 },
             })
         end,

@@ -16,6 +16,7 @@ return {
                     "nvim-dap-ui",
                     "neo-tree",
                     "lazydev",
+                    "blink-cmp",
                 },
             })
         end,

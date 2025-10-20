@@ -3,10 +3,9 @@ vim.lsp.enable({
     "lua_ls",
     "pyright",
     "vtsls",
+    "rust_analyzer",
     "delphiLSP",
 })
-
-vim.lsp.set_log_level('trace')
 
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)
@@ -21,6 +20,26 @@ vim.api.nvim_create_autocmd("LspAttach", {
                 "gd",
                 vim.lsp.buf.definition,
                 { buffer = bufnr, noremap = true, silent = true, desc = "LSP: Go to definition" }
+            )
+        end
+
+        local function showHoverDiagnostics()
+            local diagnostics = vim.diagnostic.get(bufnr, { lnum = vim.fn.line(".") - 1 })
+            if #diagnostics > 0 then
+                vim.diagnostic.open_float(nil, {
+                    focus = false,
+                    scope = "cursor",
+                    border = "rounded",
+                })
+            end
+        end
+
+        if capabilities and capabilities.diagnosticProvider then
+            vim.keymap.set(
+                "n",
+                "<leader>d",
+                showHoverDiagnostics,
+                { buffer = bufnr, noremap = true, silent = true, desc = "LSP: Show hover diagnostic" }
             )
         end
 
@@ -48,18 +67,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
             { buffer = bufnr, noremap = true, silent = true, desc = "LSP: Format file" }
         )
 
-        vim.api.nvim_create_autocmd("CursorHold", {
-            buffer = bufnr,
-            callback = function()
-                local diagnostics = vim.diagnostic.get(bufnr, { lnum = vim.fn.line(".") - 1 })
-                if #diagnostics > 0 then
-                    vim.diagnostic.open_float(nil, {
-                        focus = false,
-                        scope = "cursor",
-                        border = "rounded",
-                    })
-                end
-            end,
-        })
     end,
 })

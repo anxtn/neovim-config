@@ -15,6 +15,7 @@ int add(int a, int b) { return a + b; }
 
 int main(void) {
     Person p = {1, "Tom"};
+
     enum Color favorite = BLUE;
 
     for (int i = 0; i < MAX; i++) {
