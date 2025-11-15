@@ -4,7 +4,8 @@ vim.lsp.enable({
     "pyright",
     "vtsls",
     "rust_analyzer",
-    "delphiLSP",
+    "zls",
+--    "delphiLSP",
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
